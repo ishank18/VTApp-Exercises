@@ -1,0 +1,47 @@
+<!--
+Create a list of checkbox (red, green, yellow, white, black). Now create to links "Check all" and 'none'. When you click on check all link all checkbox will be selected, and when you click on none link all checkbox will be deselected(working example is gmail).
+-->
+
+<html>
+<head>
+<title>Selection Box Exercise</title>
+<style>
+.selectAll
+{
+	cursor:pointer;
+	color:blue;
+	font-weight:bold;
+}
+</style>
+<script>
+function selectAll(sel)
+{
+	var selector = document.getElementById('selector');
+	var cBoxes = document.getElementsByTagName('input');
+	var i = 0;
+	while(cBoxes[i] != -1)
+	{
+		if(sel == 'checkAll')
+		{
+			cBoxes[i].checked = true;
+		}
+		else
+		{
+			cBoxes[i].checked = false;
+		}
+		i++;
+	}
+	//alert(selector.nextSibling.value);
+	
+}
+</script>
+</head>
+<body>
+<span class="selectAll" onclick="selectAll('checkAll');">Select all</span> &nbsp;&nbsp;&nbsp; <span class="selectAll" onclick="selectAll('unCheckALl');">None</span><br /><br />
+<input type='checkbox' name='selector1' id='selector1' value="1" />Red<br>
+<input type='checkbox' name='selector2' id='selector2' value="2" />Green<br>
+<input type='checkbox' name='selector3' id='selector3' value="3" />Yellow<br>
+<input type='checkbox' name='selector4' id='selector4' value="4" />White<br>
+<input type='checkbox' name='selector5' id='selector5' value="5" />Red<br>
+</body>
+</html>

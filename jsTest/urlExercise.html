@@ -1,0 +1,21 @@
+<!--
+Write a Script that prompt you for a URL. If the put an empty url it should alert you. Otherwise it should open that URL in a new window of width 400px and height 450px, without any type of bar.
+
+-->
+
+<html>
+<head>
+<title>URL Exercise</title>
+<script>
+function promptName()
+{
+	var url = prompt("Enter the URL");
+	urlWindow = window.open(url,'name','height=400,width=450');
+	urlWindow.focus();
+}
+</script>
+</head>
+<body onload="promptName();">
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!--
+Create a list of checkboxs(Sunday, Monday, Wednesday, Thursday, Tuesday, Friday, Saturday and none). Now when I start checking these checkboxs, it should not let me check more than 3 checkboxes. When I try to check on 4th checkbox it should alert me as "Only 3 days can be selected. You have already selected sunday, monday and tuesday".
+
+Now when I click on none, all other checkboxs should be deselected. Also when 'none' is selected and I select any other option(lets assume sunday), that option(sunday) will be selected and none will be deselected.
+
+-->
+<html>
+<head>
+<title>Selection Box Exercise</title>
+<style>
+.selectAll
+{
+	cursor:pointer;
+	color:blue;
+	font-weight:bold;
+}
+</style>
+<script>
+function selectAll(current)
+{	
+	document.getElementById('none1').checked = false;
+	var cBoxes = document.getElementsByName('day');
+	var i = 0;
+	var count = 0;
+	while(cBoxes[i])
+	{
+		if(cBoxes[i].checked == true)
+		{
+			count++;
+		}	
+		i++;
+	}
+	if(count > 3)
+	{
+		current.checked = false;
+		i=0;
+		var msg = "Only 3 days can be selected. You have already selected ";
+		while(cBoxes[i])
+		{
+			if(cBoxes[i].checked == true)
+			{
+				msg = msg + cBoxes[i].value + ", ";
+			}	
+			i++;
+		}
+		alert(msg);
+	}
+		
+}
+function noneCheckBox()
+{
+	var cBoxes = document.getElementsByName('day');
+	var i = 0;
+	while(cBoxes[i])
+	{
+		cBoxes[i].checked = false;
+		i++;
+	}
+}
+</script>
+</head>
+<body>
+<br />
+
+<label><input type='checkbox' onclick='selectAll(this)' name='day' id='Sunday' value="Sunday" />Sunday</label><br>
+<label><input type='checkbox' onclick='selectAll(this)' name='day' id='Monday' value="Monday" />Monday</label><br>
+<label><input type='checkbox' onclick='selectAll(this)' name='day' id='Tuesday' value="Tuesday" />Tuesday</label><br>
+<label><input type='checkbox' onclick='selectAll(this)' name='day' id='Wednesday' value="Wednesday" />Wednesday</label><br>
+<label><input type='checkbox' onclick='selectAll(this)' name='day' id='Thrusday' value="Thrusday" />Thrusday</label><br>
+<label><input type='checkbox' onclick='selectAll(this)' name='day' id='Friday' value="Friday" />Friday</label><br>
+<label><input type='checkbox' onclick='selectAll(this)' name='day' id='Saturday' value="Saturday" />Saturday</label><br>
+<label><input type='checkbox' onclick='noneCheckBox();' name='none1' id='none1' value="none1"  />None</label><br>
+
+</body>
+</html>

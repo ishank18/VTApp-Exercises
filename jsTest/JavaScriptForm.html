@@ -1,0 +1,174 @@
+<!--
+Create a form like " and add JS validations to that form.When you click on 'Go' JS will check all text fields, and give an alert like "Login Id can't be empty". One alert per empty field.
+
+For textarea it should check for empty and min length of 50 characters.
+
+If any field is invalid then it should not submit the form. Also It should also confirm "receive notification"
+
+-->
+
+<html>
+<head>
+<title>Java Script Test</title>
+<script>
+function validator()
+{
+	var loginID = document.getElementById("loginID").value;
+	var eMial = document.getElementById("eMial").value;
+	var Name = document.getElementById("Name").value;	
+	var timeZone = document.getElementById("timeZone").value;	
+	var homePage = document.getElementById("homePage").value;	
+	var aboutMe = document.getElementById("aboutMe").value;	
+	var notification = document.getElementById("notification").checked;	
+	var submit = true;
+	if(loginID == "")
+	{
+		alert("Login ID is empty!");
+		submit = false;
+	}
+	if(eMial == "")
+	{
+		alert("E-Mail is empty!");
+		submit = false;
+	}
+	if(Name == "")
+	{
+		alert("Name is empty!");
+		submit = false;
+	}
+	if(timeZone == "")
+	{
+		alert("Time Zone is empty!");
+		submit = false;
+	}
+	if(homePage == "")
+	{
+		alert("Home Page is empty!");
+		submit = false;
+	}
+	if(aboutMe.length <= 50)
+	{
+		alert("About me should be more than 50 words");
+		submit = false;
+	}
+	if(submit == true && notification == false)
+	{
+		var c = confirm("Do you want to recieve notifications?");
+		if(c == true)
+		{
+			document.getElementById("notification").checked = true;
+			
+		}			
+	}
+	if(submit == true)
+	{
+		confirm("Submit the form?");	
+	}
+}
+</script>
+<style>
+body
+{
+	font-family:arial,verdana;
+	font-size:14px;
+}
+#formContainer
+{
+	width: 400px;
+	background:#E8F2D7;
+}
+input, select
+{
+	border:1px solid green;
+}
+.smallText
+{
+	font-size:11px;
+	margin-left:5px;
+}
+#mainContainer
+{
+	width:100%;
+}
+textarea
+{
+	width:380px;
+	height:150px;
+	border:1px solid green;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+table
+{
+	border-spacing: 5px;
+    	padding: 0px;
+	font-size:13px;
+	font-weight:bold;
+}
+#topContainer
+{
+	width:100%;
+	//height:20px;
+	background:#9AB368;
+	text-align:center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+#eMial, #name
+{
+	background:#FFFFA0;
+}
+#registerText
+{
+	color:#ffffff;
+	font-weight:bold;
+	
+}
+</style>
+</head>
+<body>
+<div id='mainContainer' align='center'>
+
+<div id='formContainer' align='left'>
+<div id='topContainer'><span id='registerText'>Registration Form</span></div>
+<form action='#'>
+<table>
+	<tr>
+	<td>Login ID</td>
+	<td><input type='text' name='loginID' id='loginID'></td>
+	</tr>
+	<tr>
+	<td>Email</td>
+	<td><input type='text' name='eMial' id='eMial'></td>
+	</tr>
+	<tr>
+	<td>Name</td>
+	<td><input type='text' name='Name' id='Name'></td>
+	</tr>
+	<tr>
+	<td>Time Zone</td>
+	<td><select name='timeZone' id='timeZone'>
+	<option value=''>-- Select --</option>
+	<option value='gmt'>GMT</option>
+	<option value='ist'>IST</option>
+	<option value='est'>EST</option>
+	</select>
+	</td>
+	</tr>
+	<tr>
+	<td>Home Page</td>
+	<td><input type='text' name='homePage' id='homePage'></td>
+	</tr>
+	<tr>
+	<td colspan='2'>About me<br>
+<textarea name='aboutMe' id='aboutMe' ></textarea></td>
+	</tr>
+</table><br>
+<label><input type='checkbox' name='notification' id='notification'  /> <b>Recieve notifications of comments.</b></label><br>
+<span class='smallText'>You will be sent an email when someone posts comments to your blog or album </span><br><br>
+<div align='center'>Your password will be mailed to you<br>
+<input type="button" value="go" onclick='validator();'></div>
+</form>
+</div>
+</div>
+</html>

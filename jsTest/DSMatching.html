@@ -1,0 +1,43 @@
+<!--
+Create a form with a textfield. When I enter a domain or subdomain in the box and submit the form. it should alert the subdomain if exists and the alert the domain name.
+-->
+<html>
+<head>
+<title>Domain / Sub-domain matching</title>
+<script type='text/javascript' >
+function showResult()
+{
+	var url = document.getElementById('url').value;
+	var regEx = /\./;
+	var a = url.split(regEx);
+	var len = a.length;
+	var SD = "Sub-Domains : ";
+	for(var i=0;i<len-2;i++)
+	{
+		if(i == len-3)
+		{
+			SD = SD + a[i];
+		}
+		else
+		{	
+			SD = SD + a[i] + ".";
+		}
+	}	
+	alert(SD);
+	alert("Domain : "+a[len-2]);
+
+}
+</script>
+</head>
+<body>
+<h1 align='center'>Domain / Sub-domain matching</h1><br><br><br><br><br><br>
+<div align='center'>
+<form action='#' method='post'>
+
+<input type='text' id='url' size='50'><br>
+<input type='button' onclick='showResult();' value='Test' /> 
+
+</form>
+</div>
+</body>
+</html>

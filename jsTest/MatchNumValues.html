@@ -1,0 +1,35 @@
+<!--
+Create a form with two textfields labeled "Enter Number" and "Result". When I enter something in first textfield and submit the form, it should write true in second textfield if entered value is numeric otherwise false. Also if entered value is not numeric, form should not be submitted.
+-->
+
+<html>
+<head>
+<title>Matching numerical values</title>
+<script type='text/javascript'>
+function varify()
+{
+	var num1 = document.getElementById('num1').value;
+	var regEx = /^\d+$/;
+	if(regEx.test(num1))
+	{
+		document.getElementById('result').value = "True";
+		document.getElementById('subButton').disabled = false;
+	}	
+	else
+	{
+		document.getElementById('result').value = "False";
+		document.getElementById('subButton').disabled = true;
+	}
+}
+</script>
+</head>
+<body>
+<h1 align='center'>Matching numerical values</h1>
+<br><br><br>
+<form acrtion="#" method='post'>
+Enter Number : <input type='text' name='num1' id='num1'><input type='button' onclick='varify();' value='submit'><br><br>
+Result : <input type='text' name='result' id='result'><br><br>
+<input type='submit' id='subButton' disabled />
+</form>
+</body>
+</html>

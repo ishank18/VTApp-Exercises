@@ -1,0 +1,30 @@
+<!--
+Create a HTML page, when it opens in Browser, it should prompt twice. Once for first name and second for last name. When you enter first and last name, it should alert you as "Hello firstname lastname."
+
+After alert it should put that text in html page
+-->
+<html>
+<head>
+<title>Hello</title>
+<script>
+function promptName()
+{
+	var fName = '';
+	var lName = '';
+	while(fName == '' || fName == null)
+	{
+		fName = prompt("Enter your First Name");
+	}
+	while(lName == '' || lName == null)
+	{
+		lName = prompt("Enter your Last Name");
+	}
+	alert("Hello " + fName + " " + lName + "!");
+	document.write("Hello " + fName + " " + lName + "!");
+}
+</script>
+</head>
+<body onload="promptName();">
+
+</body>
+</html>
